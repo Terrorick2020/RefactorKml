@@ -1,0 +1,24 @@
+@keyframes fadeInAnime {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeOutAnime {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+@keyframes rotateAnime {
+    from { transform: rotate(0); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes openLeftDoorAnime {
+    from { left: 0; }
+    to { left: -20%; }
+}
+
+@keyframes openRightDoorAnime {
+    from { right: 0; }
+    to { right: -20%; }
+}

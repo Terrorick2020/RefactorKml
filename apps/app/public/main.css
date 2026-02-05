@@ -1,0 +1,24 @@
+@import url("./fonts/fonts.css");
+@import url("./styles/anime.css");
+@import url("./styles/preloader.css");
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Interfonts", sans-serif;
+}
+
+html, body {
+    width: 100vw;
+    height: 100vh;
+    background: #3c3d4940;
+}
+
+#root {
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    animation: fadeInAnime 1s linear forwards;
+}

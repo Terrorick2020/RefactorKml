@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <title>Геопульт</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/main.css">
+  </head>
+  <body>
+    <div id="preloader">
+      <div class="preloader__bg">
+        <div id="preloader__ldoor" class="door-left"></div>
+        <div id="preloader__rdoor" class="door-right"></div>
+      </div>
+      <div class="preloader__logo">
+        <figure class="plogo-fig">
+          <img src="/favicon.ico" alt="logo">
+        </figure>
+        <div class="plogo-preview">
+          <h3 class="headline">Идёт загрузка. Подождите немного</h3>
+          <div class="circle"></div>
+        </div>
+      </div>
+    </div>
+    <div id="root"></div>
+    <script defer type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

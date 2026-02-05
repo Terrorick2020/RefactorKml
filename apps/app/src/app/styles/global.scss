@@ -1,0 +1,52 @@
+@use "./utils/func";
+@use "./utils/mixins";
+
+
+:root {
+    --app-sel-bg: none;
+    --app-sel-color: none;
+
+    #light {
+        --app-bg: #e1e1e1;
+        --app-color: #000000;
+        --app-sel-bg: #19ce85;
+        --app-sel-color: #ffffff;
+
+        --block-bg: red;
+
+        --block-br: 10px;
+    }
+
+    #dark {
+        --app-bg: #000000;
+        --app-color: #000000;
+        --app-sel-bg: #19ce85;
+        --app-sel-color: #ffffff;
+
+        --block-bg: red;
+    }
+}
+
+::selection {
+    background: var(--app-sel-bg);
+    color: var(--app-sel-color);
+}
+
+*::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+    background: var(--scroll-track);
+}
+
+*::-webkit-scrollbar-thumb {
+    background: var(--scroll-thumb);
+    border-radius: 8px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    // background: darken(var(--scroll-thumb), 20%);
+    // background: lighten($color: #000000, $amount: 0);
+}
