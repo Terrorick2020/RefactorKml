@@ -1,0 +1,69 @@
+@use "./vars";
+
+@use "sass:math";
+@use "sass:meta";
+
+
+
+@function pxToRem($pixel) {
+    @if math.is-unitless($pixel) {
+        @return math.div($pixel, vars.$baseRemDelta) * 1rem;
+    } @else if math.unit($pixel) == "px" {
+        @return math.div(math.div($pixel, 1px), vars.$baseRemDelta) * 1rem;
+    } @else {
+        @error "Функция `pxToRem` принимает только числа без единиц или px.";
+    }
+}
+
+@function fluidTextFn($max: vars.$defaultMaxFont, $min: vars.$defaultMinFont) {
+    $maxNumber: null;
+    $minNumber: null;
+
+    @if math.is-unitless($max) {
+        $maxNumber: $max;
+    } @else if math.unit($max) == px {
+        $maxNumber: stripUnits($max);
+    } @else {
+        @error "Функция `fluidTextFn` использует только числа или px для максимального значения!";
+    }
+
+    @if math.is-unitless($min) {
+        $minNumber: $min;
+    } @else if math.unit($min) == px {
+        $minNumber: stripUnits($min);
+    } @else {
+        @error "Функция `fluidTextFn` использует только числа или px для минимального значения!";
+    }
+
+    $maxSize: math.div($maxNumber, vars.$baseRemDelta);
+    $minSize: math.div($minNumber, vars.$baseRemDelta);
+    $maxWidth: math.div(vars.$maxViewportWidth, vars.$baseRemDelta);
+    $minWidth: math.div(vars.$minViewportWidth, vars.$baseRemDelta);
+
+    $slope: math.div(($maxSize - $minSize), ($maxWidth - $minWidth));
+    $yAxisIntersection: - $minWidth * $slope + $minSize;
+
+    $slope: math.div(round($slope * 100000), 100000);
+    $yAxisIntersection: math.div(round($yAxisIntersection * 1000), 1000);
+
+    @return clamp(
+        #{$minSize}rem,
+        calc(#{$yAxisIntersection}rem + #{$slope * 100}vw),
+        #{$maxSize}rem
+    );
+}
+
+@function padding-range($isSmall, $minVar, $maxVar) {
+    $minVal: null;
+    $maxVal: null;
+
+    @if $isSmall {
+        $minVal: var(--#{$minVar});
+        $maxVal: var(--#{$maxVar});
+    } @else {
+        $minVal: var(--#{$minVar});
+        $maxVal: var(--#{$maxVar});
+    }
+
+    @return clamp($minVal, 2.5vmax, $maxVal);
+}

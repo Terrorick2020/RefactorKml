@@ -1,3 +1,9 @@
+:root {
+    --root-font-color: #110f0f;
+    --root-light-color: #8f8c88;
+    --root-dark-color: #525466;
+}
+
 #preloader {
     width: 100vw;
     height: 100vh;
@@ -25,13 +31,13 @@
 }
 
 #preloader .preloader__bg .door-left {
-	border-top: 100vh solid #8f8c88;
+	border-top: 100vh solid var(--root-light-color);
 	border-right: 10vw solid transparent;
     left: 0;
 }
 
 #preloader .preloader__bg .door-right {
-    border-bottom: 100vh solid #525466;
+    border-bottom: 100vh solid var(--root-dark-color);
     border-left: 10vw solid transparent;
     right: 0;
 }
@@ -79,12 +85,15 @@
     text-align: center;
     font-size: 1.5rem;
     font-weight: 700;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    color: var(--root-font-color);
 }
 
 #preloader .preloader__logo .plogo-preview .circle {
     border-radius: 50%;
-    border: 0.4rem solid rgba(85, 85, 85, 0.406);
-    border-top-color: black;
+    border: 0.4rem solid #55555568;
+    border-top-color: var(--root-font-color);
     width: 50px;
     height: 50px;
     background: transparent;

@@ -4,6 +4,7 @@ import type { JSX } from 'react';
 
 function GisLayout(): JSX.Element {
     return (
+        
         <Outlet />
     )
 }

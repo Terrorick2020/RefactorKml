@@ -1,0 +1,19 @@
+@use "@/shared/assets/styles" as *;
+
+@keyframes pulse {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.4;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.skeleton {
+    background: red;
+    animation: pulse 1.5s ease-in-out infinite;
+    @include whFull();
+}

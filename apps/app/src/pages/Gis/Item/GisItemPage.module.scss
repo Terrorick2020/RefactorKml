@@ -1,0 +1,14 @@
+@use "@/shared/assets/styles" as *;
+
+
+.gis-item-page {
+    display: grid;
+    grid-template-columns: 15vw auto 12.5vw;
+    background: transparent;
+    @include whFull();
+
+    &__block {
+        background: transparent;
+        @include whFull();
+    }
+}

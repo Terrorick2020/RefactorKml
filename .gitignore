@@ -1,0 +1,6 @@
+**/dist
+**/.vscode
+**/ssl
+**/node_modules
+
+**/.env

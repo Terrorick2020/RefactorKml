@@ -1,0 +1,6 @@
+@use "@/shared/assets/styles" as *;
+
+.img-loader {
+    overflow: hidden;
+    @include whFull();
+}

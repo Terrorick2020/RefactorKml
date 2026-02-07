@@ -1,0 +1,30 @@
+@use "./funcs";
+@use "./vars";
+
+
+@mixin whFull() {
+    width: 100%;
+    height: 100%;
+}
+
+@mixin baseFlex($bfDirect: row, $bfJustCtx: center, $bfAliItms: center) {
+    display: flex;
+    flex-direction: $bfDirect;
+    justify-content: $bfJustCtx;
+    align-items: $bfAliItms;
+}
+
+@mixin fluidText($max: vars.$defaultMaxFont, $min: vars.$defaultMinFont) {
+    font-size: funcs.fluidTextFn($max, $min);
+}
+
+@mixin blockPadding($withBlock: true, $isSmall: false) {
+  $padInline: funcs.padding-range($isSmall, "small-block-padding-min", "small-block-padding-max");
+  $padBlock: 0;
+
+  @if $withBlock {
+    $padBlock: funcs.padding-range($isSmall, "small-block-padding-min", "small-block-padding-max");
+  }
+
+  padding: $padInline $padBlock;
+}

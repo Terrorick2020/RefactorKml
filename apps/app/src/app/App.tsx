@@ -2,7 +2,7 @@ import { AppStore, AppRouter } from './provider';
 import { BrowserRouter } from 'react-router';
 import { type JSX } from 'react';
 
-import "./styles/global.scss"
+import "./styles/index.scss";
 
 
 function App(): JSX.Element {

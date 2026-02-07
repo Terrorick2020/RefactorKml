@@ -1,0 +1,46 @@
+@use "@/shared/assets/styles" as *;
+
+
+body, h5, h6, p {
+    font-family: 'Interfonts', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+}
+
+h1, h2, h3, h4, button, caption {
+    font-family: 'CraftworkGrotesk', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+}
+
+h1 { @include fluidText(40, 28) }
+h2 { @include fluidText(36, 26) }
+h3 { @include fluidText(32, 24) }
+h4 { @include fluidText(28, 22) }
+h5 { @include fluidText(24, 20) }
+h6 { @include fluidText(20, 18) }
+p  { @include fluidText(16, 14) }
+
+h1, h2, h3, h4, h5, h6, p, button, caption {
+    color: var(--app-light-color);
+
+    &.opacity {
+        color: color-mix(
+            in srgb,
+            var(--app-light-color) 80%,
+            transparent 20%
+        );
+    }
+
+    &.word-break {
+        word-break: break-all;
+    }
+
+    &.uppercase {
+        text-transform: uppercase;
+    }
+}
+
+button, caption {
+    color: var(--app-light-color);
+}

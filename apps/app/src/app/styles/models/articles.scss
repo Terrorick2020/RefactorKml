@@ -1,0 +1,11 @@
+img, svg, button, a {
+    text-decoration: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+a.link {
+    cursor: pointer;
+    text-decoration: underline;
+    color: var(--color-purple);
+}

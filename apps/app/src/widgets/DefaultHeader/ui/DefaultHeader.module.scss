@@ -1,0 +1,16 @@
+@use "@/shared/assets/styles" as *;
+
+
+.default-header {
+    background: transparent;
+    @include whFull();
+
+    &__ctx {
+        @include whFull();
+        @include baseFlex(row, space-between);
+
+        .app-root-nav-btns {
+            @include baseFlex(row, right);
+        }
+    }
+}

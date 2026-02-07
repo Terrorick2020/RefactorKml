@@ -1,29 +1,62 @@
-@use "./utils/func";
-@use "./utils/mixins";
+@use "@/shared/assets/styles" as *;
 
 
 :root {
     --app-sel-bg: none;
     --app-sel-color: none;
 
+    --app-scroll-track-bg: none;
+    --app-scroll-thumb-bg: none;
+
+    --block-border-radius: #{pxToRem(2.5)};
+    --small-block-border-radius: #{pxToRem(10)};
+    --block-border-size: #{pxToRem(1.5)};
+    --small-block-border-size: #{pxToRem(0.5)};
+    --block-bs-size: #{pxToRem(4)};
+    --small-block-bs-size: #{pxToRem(2)};
+
+    --block-padding-max: #{pxToRem(10)};
+    --small-block-padding-max: #{pxToRem(7.5)};
+    --block-padding-min: #{pxToRem(5)};
+    --small-block-padding-max: #{pxToRem(3.75)};
+
+    --button-br: #{pxToRem(10)};
+    --button-bs: #{pxToRem(1)};
+
     #light {
-        --app-bg: #e1e1e1;
-        --app-color: #000000;
-        --app-sel-bg: #19ce85;
-        --app-sel-color: #ffffff;
+        --app-bg: #252B38;
+        --app-light-color: #C8CDD6;
+        --app-dark-color: #C8CDD6;
+
+        --app-sel-bg: #1fb479;
+        --app-sel-color: #ddd2d2;
+
+        --app-scroll-track-bg: red;
+        --app-scroll-thumb-bg: red;
 
         --block-bg: red;
-
-        --block-br: 10px;
+        --block-border-color: red;
+        --block-bs-color: #ffffff;
+        --block-bi-color: #eceff3;
+        --block-bm: darken;
     }
 
     #dark {
-        --app-bg: #000000;
-        --app-color: #000000;
-        --app-sel-bg: #19ce85;
-        --app-sel-color: #ffffff;
+        --app-bg: #252B38;
+        --app-light-color: #C8CDD6;
+        --app-dark-color: #C8CDD6;
 
-        --block-bg: red;
+        --app-sel-bg: #1fb479;
+        --app-sel-color: #ddd2d2;
+
+        --app-scroll-track-bg: red;
+        --app-scroll-thumb-bg: red;
+
+        --block-bg: #1f2430;
+        --block-border-color: #282c35;
+        --block-bs-color: #60636e;
+        --block-bi-color: #f1f4f6;
+        --block-bm: lighten;
     }
 }
 
@@ -33,20 +66,23 @@
 }
 
 *::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+    width: pxToRem(8);
+    height: auto;
 }
 
 *::-webkit-scrollbar-track {
-    background: var(--scroll-track);
+    background: var(--app-scroll-track-bg);
 }
 
 *::-webkit-scrollbar-thumb {
-    background: var(--scroll-thumb);
-    border-radius: 8px;
+    background: var(--app-scroll-thumb-bg);
+    border-radius: pxToRem(8);
 }
 
 *::-webkit-scrollbar-thumb:hover {
-    // background: darken(var(--scroll-thumb), 20%);
-    // background: lighten($color: #000000, $amount: 0);
+    background: color-mix(
+        in oklab,
+        var(--app-scroll-thumb-bg) 85%,
+        #ffffff
+    );
 }
