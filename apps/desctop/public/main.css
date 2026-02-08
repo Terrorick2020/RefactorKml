@@ -1,0 +1,25 @@
+@import url("./fonts/fonts.css");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Interfonts", sans-serif;
+}
+
+:root {
+    --root-bg-color: #3c3d4940;
+}
+
+html, body {
+    width: 100vw;
+    height: 100vh;
+    background: var(--root-bg-color);
+}
+
+#root {
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    animation: fadeInAnime 1s linear forwards;
+}

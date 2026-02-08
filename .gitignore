@@ -4,6 +4,8 @@
 **/!.vscode/extensions.json
 **/ssl
 **/node_modules
+**/target
+**/gen/schemas
 
 **/.env
 **/*.local

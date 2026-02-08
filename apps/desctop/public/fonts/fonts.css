@@ -1,0 +1,57 @@
+@font-face {
+  font-family: "Interfonts";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("./Inter/InterVariable-cyrillic.woff2") format("woff2");
+  unicode-range: U+0400-04FF;
+}
+
+@font-face {
+  font-family: "Interfonts";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("./Inter/InterVariable-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0100-024F;
+}
+
+@font-face {
+  font-family: "CraftworkGrotesk";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("./CraftworkGrotesk/CraftworkGrotesk-Regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "CraftworkGrotesk";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("./CraftworkGrotesk/CraftworkGrotesk-Medium.ttf") format("ttf");
+}
+
+@font-face {
+  font-family: "CraftworkGrotesk";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("./CraftworkGrotesk/CraftworkGrotesk-SemiBold.ttf") format("ttf");
+}
+
+@font-face {
+  font-family: "CraftworkGrotesk";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("./CraftworkGrotesk/CraftworkGrotesk-Bold.ttf") format("ttf");
+}
+
+@font-face {
+  font-family: "CraftworkGrotesk";
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("./CraftworkGrotesk/CraftworkGrotesk-ExtraBold.woff2") format("woff2");
+}

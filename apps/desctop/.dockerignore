@@ -1,0 +1,8 @@
+node_modules/
+dist/
+ssl/
+
+bun.lock
+package.lock.json
+.env.example
+Dockerfile
