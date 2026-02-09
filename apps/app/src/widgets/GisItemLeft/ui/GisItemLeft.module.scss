@@ -1,0 +1,21 @@
+@use "@/shared/assets/styles" as *;
+
+
+.gis-item-left {
+    background: transparent;
+    padding-block: pxToRem(10);
+    display: grid;
+    grid-template-rows: 5vh auto;
+    @include whFull();
+
+    &__body {
+        padding-block: pxToRem(10);
+        display: grid;
+        grid-template-rows: auto 5vh;
+        @include whFull();
+
+        .list {
+            @include whFull();
+        }
+    }
+}

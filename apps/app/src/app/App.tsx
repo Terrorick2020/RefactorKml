@@ -1,16 +1,18 @@
-import { AppStore, AppRouter } from './provider';
-import { BrowserRouter } from 'react-router';
-import { type JSX } from 'react';
+import { AppStore, AppRouters } from './provider';
+import { MemoryRouter } from 'react-router-dom';
+import type { JSX } from 'react';
 
 import "./styles/index.scss";
 
 
-function App(): JSX.Element {
+interface IAppProps { initialPath: string }
+
+function App({ initialPath }: IAppProps): JSX.Element {
   return (
     <AppStore>
-      <BrowserRouter>
-        <AppRouter />
-      </BrowserRouter>
+      <MemoryRouter initialEntries={[initialPath]}>
+        <AppRouters />
+      </MemoryRouter>
     </AppStore>
   )
 }

@@ -4,8 +4,16 @@ img, svg, button, a {
     -webkit-tap-highlight-color: transparent;
 }
 
-a.link {
+button, a.link {
     cursor: pointer;
     text-decoration: underline;
     color: var(--color-purple);
+}
+
+hr {
+    margin-block: 5px;
+    color: var(--app-light-color);
+    opacity: 0.1;
+    width: 100%;
+    border-radius: 10%;
 }

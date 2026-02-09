@@ -5,7 +5,7 @@ import { GisItemPage } from '@/pages';
 import { type JSX } from 'react';
 
 
-function AppRouter(): JSX.Element {
+function AppRouters(): JSX.Element {
     return (
         <Routes>
             <Route path={ AppsRoutes.appRoutes.glob } element={ <DefaultLayout /> }>
@@ -17,4 +17,4 @@ function AppRouter(): JSX.Element {
     )
 }
 
-export default AppRouter;
+export default AppRouters;

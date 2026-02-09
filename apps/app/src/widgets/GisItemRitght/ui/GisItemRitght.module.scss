@@ -1,0 +1,31 @@
+@use "@/shared/assets/styles" as *;
+
+.gis-item-right {
+    background: transparent;
+    padding-block: pxToRem(10);
+    display: grid;
+    grid-template-rows: 2.5rem auto;
+    @include whFull();
+
+    &__title {
+        width: 100%;
+        text-align: center;
+    }
+
+    &__body {
+        padding-block: pxToRem(10);
+        gap: 1vh;
+        @include whFull();
+        @include baseFlex(column, start);
+
+        > button{
+            width: 100%;
+            height: pxToRem(50);
+
+            &:last-of-type {
+                margin-top: auto;
+            }
+        }
+    }
+}
+

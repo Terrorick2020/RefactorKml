@@ -58,12 +58,12 @@
     $maxVal: null;
 
     @if $isSmall {
-        $minVal: var(--#{$minVar});
-        $maxVal: var(--#{$maxVar});
+        $minVal: var(--small-#{$minVar});
+        $maxVal: var(--small-#{$maxVar});
     } @else {
         $minVal: var(--#{$minVar});
         $maxVal: var(--#{$maxVar});
     }
 
-    @return clamp($minVal, 2.5vmax, $maxVal);
+    @return clamp($minVal, 1vmax, $maxVal);
 }

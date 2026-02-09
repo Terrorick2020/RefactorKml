@@ -1,5 +1,5 @@
 import AppStore from './Store';
-import AppRouter from './Router';
+import AppRouters from './Routes';
 
 
-export { AppStore, AppRouter }
+export { AppStore, AppRouters }

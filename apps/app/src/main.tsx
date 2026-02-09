@@ -7,8 +7,8 @@ const LazyApp = lazy(() => delayForLazy(import('./app/App')));
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <Suspense>
-      <LazyApp />
-    </Suspense>
+      <Suspense>
+        <LazyApp />
+      </Suspense>
   </StrictMode>
 );

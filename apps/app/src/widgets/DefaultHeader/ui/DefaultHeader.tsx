@@ -1,4 +1,6 @@
-import { WidgetBlock, AppLogo, AppNav } from '@/widgets';
+import { WidgetBlock } from '@/widgets';
+import { AppNav, ThemeBtn, ProfileBtn } from '@/features/DefaultHeader';
+import { AppLogo } from '@/shared/ui';
 import type { JSX } from 'react';
 
 import styles from './DefaultHeader.module.scss'
@@ -12,7 +14,8 @@ function DefaultHeader(): JSX.Element {
                     <AppLogo />
                     <AppNav />
                     <div className={ styles['app-root-nav-btns'] }>
-                        
+                        <ThemeBtn />
+                        <ProfileBtn />
                     </div>
                 </div>
             </WidgetBlock>

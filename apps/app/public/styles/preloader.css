@@ -9,7 +9,7 @@
     height: 100vh;
     background: transparent;
     position: relative;
-    animation: fadeInAnime 1s linear forwards;
+    animation: fadeInAnime 2s ease-in-out forwards;
 }
 
 #preloader .preloader__bg {

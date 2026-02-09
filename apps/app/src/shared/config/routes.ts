@@ -1,6 +1,6 @@
 export namespace AppsRoutes {
   export type TARItemType = 'string' | 'number';
-  export const markName: string = 'mark';
+  export const markName: string = ':mark';
 
   export const appRoutes = {
     glob: '',
@@ -16,7 +16,7 @@ export namespace AppsRoutes {
       inner: {
         list: 'list',
         item: {
-          value: `list/:${markName}`,
+          value: `list/${markName}`,
           type: 'string' as TARItemType,
         }
       }
@@ -25,6 +25,14 @@ export namespace AppsRoutes {
     error: '/error',
     notFound: '*',
   } as const;
+
+  export const appGlobGisRoute = appRoutes.gis.glob;
+  export const appGisItemRoute = appRoutes.gis.inner.item;
+  export const getAppGisItemPath = (mark: any) => {
+    if(typeof mark !== appGisItemRoute.type)
+      throw new Error("Неверный тип значения 'mark' в /gis/list/'mark'");
+    return `${appGlobGisRoute}/${appGisItemRoute.value}`.replace(markName, mark);
+  }
 
   export const apiRoutes = {
     glob: '',

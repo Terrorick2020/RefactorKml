@@ -1,0 +1,7 @@
+@use "@/shared/assets/styles" as *;
+
+
+.autosave-check {
+    @include whFull();
+    @include baseFlex(row, start, end)
+}

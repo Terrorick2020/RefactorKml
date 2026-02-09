@@ -19,12 +19,15 @@
 }
 
 @mixin blockPadding($withBlock: true, $isSmall: false) {
-  $padInline: funcs.padding-range($isSmall, "small-block-padding-min", "small-block-padding-max");
+  $varNameMin: "block-padding-min";
+  $varNameMax: "block-padding-max";
+
+  $padInline: funcs.padding-range($isSmall, $varNameMin, $varNameMax);
   $padBlock: 0;
 
   @if $withBlock {
-    $padBlock: funcs.padding-range($isSmall, "small-block-padding-min", "small-block-padding-max");
+    $padBlock: funcs.padding-range($isSmall, $varNameMin, $varNameMax);
   }
 
-  padding: $padInline $padBlock;
+  padding: $padBlock $padInline;
 }

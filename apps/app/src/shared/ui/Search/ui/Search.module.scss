@@ -1,0 +1,54 @@
+@use "@/shared/assets/styles" as *;
+
+.search {
+    width: 100%;
+    min-height: pxToRem(30);
+    display: grid;
+    grid-template-columns: pxToRem(32) auto;
+    gap: pxToRem(5);
+    border-radius: var(--button-br);
+    overflow: hidden;
+    background: color-mix(in srgb, var(--block-bg) 85%, var(--color-mixin-color) 15%);
+    border: pxToRem(1.75) solid transparent;
+    transition: border 0.5s ease;
+
+
+    &:focus-within {
+        border-color: color-mix(in srgb, var(--block-bg) 70%, var(--color-mixin-color) 30%);
+    }
+
+    &__icon, &__input {
+        @include whFull();
+        @include baseFlex();
+    }
+
+    &__icon {
+        svg {
+            width: pxToRem(28);
+            aspect-ratio: 1 / 1;
+
+            g {
+                fill: var(--app-light-color);
+            }
+        }
+    }
+
+    &__input {
+        width: 100%;
+        outline: none;
+        border: none;
+        background: inherit;
+        padding-right: pxToRem(10);
+        color: var(--app-light-color);
+        letter-spacing: 0.75px;
+        @include fluidText(15, 13);
+    }
+
+    &__input::placeholder{
+        color: var(--app-light-color);
+        opacity: 0.5;
+        font-family: 'Interfonts', sans-serif;
+        font-weight: 500;
+        @include fluidText(16, 14);
+    }
+}

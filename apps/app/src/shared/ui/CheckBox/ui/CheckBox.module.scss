@@ -1,0 +1,41 @@
+@use "@/shared/assets/styles" as *;
+
+.checkbox {
+    width: 100%;
+    gap: 0.5vw;
+    @include baseFlex(row, start);
+
+    input { display: none; }
+
+    .checkbox__custom {
+        width: 1.5vmax;
+        aspect-ratio: 1 / 1;
+        border-radius: calc(var(--button-br) / 2);
+        background: color-mix(in srgb, var(--block-bg) 85%, var(--color-mixin-color) 15%);
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+
+        &::after {
+            content: "";
+            position: absolute;
+            width: 0%;
+            height: 0%;
+            background: #8696b5;
+            border-radius: calc(var(--button-br) / 2);
+            transition: all 0.5s ease;
+        }
+    }
+
+    input:checked + .checkbox__custom::after {
+        width: 70%;
+        height: 70%;
+    }
+
+    p {
+        font-weight: 500;
+    }
+}

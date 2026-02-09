@@ -10,6 +10,7 @@
         @include baseFlex(row, space-between);
 
         .app-root-nav-btns {
+            gap: 1vw;
             @include baseFlex(row, right);
         }
     }

@@ -1,6 +1,8 @@
 import { AppAnime } from "@/shared/config";
-import { delay } from ".";
-import type { ComponentType } from "react";
+import { delay } from "./general";
+import { AppsRoutes } from "@/shared/config";
+import { type ComponentType, createElement } from "react";
+
 
 export async function delayForLazy(
   promise: Promise<{ default: ComponentType<any> }>,
@@ -9,6 +11,12 @@ export async function delayForLazy(
 
   const [jsxRes] = await Promise.all([promise]);
 
+  const Wrapped = (props: any) =>
+    createElement(
+      jsxRes.default,
+      { ...props, initialPath: AppsRoutes.getAppGisItemPath('new') },
+    );
+
   const elapsed = performance.now() - start;
   const remainingDelay = Math.max(0, AppAnime.globAnimeMs - elapsed);
 
@@ -16,7 +24,7 @@ export async function delayForLazy(
 
   await showApp();
 
-  return jsxRes;
+  return { default: Wrapped as ComponentType<any> };;
 }
 
 export async function showApp() {

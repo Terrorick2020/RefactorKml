@@ -1,0 +1,22 @@
+@use "@/shared/assets/styles" as *;
+
+
+.app-logo {
+    width: auto;
+    height: 100%;
+    gap: 1vw;
+    @include baseFlex(row, start);
+
+    svg {
+        height: 80%;
+        aspect-ratio: 1 / 1;
+
+        g {
+            fill: var(--app-light-color);
+        }
+    }
+
+    h4 {
+        user-select: none;
+    }
+}
