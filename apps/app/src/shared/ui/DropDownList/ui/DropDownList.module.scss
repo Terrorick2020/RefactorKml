@@ -1,0 +1,44 @@
+@use "@/shared/assets/styles" as *;
+
+
+.drop-down-list {
+    width: 100%;
+    overflow: hidden;
+
+    &[open] &__body {
+        grid-template-rows: auto;
+    }
+
+    &:not([open]) .summary-icon {
+        transform: rotate(-90deg);
+    }
+
+    &__title {
+        list-style: none;
+        cursor: pointer;
+        @include baseFlex(row, start);
+
+        .summary-icon {
+            transition: transform 0.4s ease;
+
+            g { fill: var(--app-light-color); }
+        }
+
+        .summary-title {
+            width: 100%;
+        }
+    }
+    
+    &__body {
+        padding-top: pxToRem(7.5);
+        padding-left: pxToRem(15);
+        display: grid;
+        grid-template-rows: 0;
+        transition: grid-template-rows 0.5s ease;
+        overflow: hidden;
+
+        .content {
+            width: 100%;
+        }
+    }
+}

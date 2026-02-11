@@ -3,6 +3,7 @@
 .checkbox {
     width: 100%;
     gap: 0.5vw;
+    cursor: pointer;
     @include baseFlex(row, start);
 
     input { display: none; }
@@ -17,7 +18,6 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        cursor: pointer;
 
         &::after {
             content: "";

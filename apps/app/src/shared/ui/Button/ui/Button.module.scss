@@ -16,12 +16,27 @@
     color: color-mix(in srgb, var(--app-light-color) 90%, black 10%);
     border: 2px solid color-mix(in srgb, var(--bg-button-color) 90%, rgb(255, 255, 255) 10%);
     font-weight: 400;
+    position: relative;
+    overflow: hidden;
     @include baseFlex();
     @include fluidText(14, 12);
 
+    &:disabled {
+        opacity: 0.8;
+        cursor: not-allowed;
+    }
 
-    &:active {
+    &:active:not(&:disabled) {
         transform: scale(0.9);
+    }
+
+    input[type="file"] {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        cursor: pointer;
+        @include whFull();
     }
 
     &.btn-icon {

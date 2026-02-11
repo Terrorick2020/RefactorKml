@@ -9,19 +9,52 @@
     @include whFull();
 
     &__body {
-        padding-block: pxToRem(10);
+        overflow: hidden;
+        padding-block: pxToRem(10) pxToRem(20);
         @include whFull();
     }
 
     &__panel {
         position: absolute;
-        bottom: 2.5vw;
+        bottom: pxToRem(20);
         width: 80%;
         height: 4vw;
         overflow: hidden;
+        z-index: 1;
 
         > div {
             border-radius: pxToRem(20);
+
+            .panel-box {
+                display: grid;
+                grid-template-columns: auto auto auto;
+                gap: 1vw;
+                @include whFull();
+
+                &__item {
+                    @include whFull();
+                    @include baseFlex(row, space-evenly);
+                }
+            }
+
+            .panel-box__item {
+                &:last-of-type {
+                    position: relative;
+                }
+
+                &:last-of-type::after {
+                    --pbi-la-h: 55%;
+
+                    content: "";
+                    position: absolute;
+                    left: 0;
+                    top: calc((100% - var(--pbi-la-h)) / 2);
+                    width: pxToRem(2);
+                    height: var(--pbi-la-h);
+                    background: var(--block-border-color);
+                    border-radius: pxToRem(10);
+                }
+            }
         }
     }
 }

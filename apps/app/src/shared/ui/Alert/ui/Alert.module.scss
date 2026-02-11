@@ -1,0 +1,52 @@
+@use "@/shared/assets/styles" as *;
+
+@keyframes toUpAlertAnime {
+    from {
+        transform: translate(0, 30px);
+    }
+    to {
+        transform: translate(0, 0);
+    }
+}
+
+.alert {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: color-mix(
+        in srgb,
+        black 25%,
+        transparent 50%
+    );
+    backdrop-filter: blur(2px);
+    animation: fadeInAnime 1s ease forwards;
+    @include baseFlex();
+
+    &__ctx {
+        min-width: 15%;
+        max-width: 80%;
+        min-height: 20%;
+        max-height: 90%;
+        background: var(--app-bg);
+        border: pxToRem(1.5) solid color-mix(in srgb, var(--app-bg) 80%, var(--color-mixin-color) 20%);
+        border-radius: var(--button-br);
+        padding: pxToRem(10) pxToRem(20);
+        box-shadow: inset 0 0 var(--block-bs-size) var(--block-bs-color);
+        gap: 1vh;
+        animation: toUpAlertAnime 0.25s linear forwards;
+        @include baseFlex(column, start);
+
+        .alert-header {
+            width: 100%;
+            text-align: center;
+        }
+
+        .alert-main {
+            width: 100%;
+            padding: pxToRem(5);
+            @include baseFlex();
+        }
+    }
+}

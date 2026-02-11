@@ -1,0 +1,12 @@
+@use "@/shared/assets/styles" as *;
+
+
+.list-layesr {
+    overflow: hidden;
+    @include whFull();
+
+    .inner-list {
+        gap: 1.25vh;
+        @include baseFlex(column, start, start);
+    }
+}

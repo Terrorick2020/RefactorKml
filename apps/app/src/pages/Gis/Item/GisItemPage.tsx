@@ -13,7 +13,7 @@ function GisItemPage(): JSX.Element {
                 </WidgetBlock>
             </aside>
             <main className={ styles['gis-item-page__block'] }>
-                <WidgetBlock>
+                <WidgetBlock isDarken>
                     <GisItemCenter />
                 </WidgetBlock>
             </main>

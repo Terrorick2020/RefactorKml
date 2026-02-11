@@ -11,6 +11,11 @@
     @include whFull();
     @include blockPadding(false);
 
+
+    &.darken {
+        background: color-mix(in srgb, var(--block-bg) 80%, #00000080 20%);
+    }
+
     &::after {
         content: "";
         position: absolute;

@@ -10,7 +10,7 @@ const initialState: ISettingsState = {
   theme: EThemes.Dark,
 }
 
-const settingsSliceName = 'settings';
+const settingsSliceName = 'settingsSlice';
 
 const settingsSlice = createSlice({
   name: settingsSliceName,

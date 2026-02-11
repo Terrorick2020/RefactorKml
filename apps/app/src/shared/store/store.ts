@@ -2,12 +2,13 @@ import { persistReducer, persistStore as persStore } from 'redux-persist'
 import { combineReducers, configureStore, } from '@reduxjs/toolkit';
 import { loggerMiddleware } from './middleware';
 import { persistConfig } from './model/persist';
-import { settingsReducer } from './slices';
+import { settingsReducer, gisReducer } from './slices';
 import { type TRootStateReducer, ERootActionType } from './types';
 
 
 const combineReducer: TRootStateReducer = combineReducers({
     settings: settingsReducer,
+    gis: gisReducer,
 });
 
 const actionReducer: TRootStateReducer = (state, action) => {

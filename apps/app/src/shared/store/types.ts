@@ -1,6 +1,6 @@
 import type { Reducer } from '@reduxjs/toolkit';
 import type { rootStore } from './store';
-import type { ISettingsState } from './slices';
+import type { ISettingsState, IGisState } from './slices';
 
 
 export enum ERootActionType {
@@ -10,6 +10,7 @@ export enum ERootActionType {
 
 export interface IRootState {
   settings: ISettingsState,
+  gis: IGisState,
 }
 
 export type TRootStateReducer = Reducer<IRootState>;

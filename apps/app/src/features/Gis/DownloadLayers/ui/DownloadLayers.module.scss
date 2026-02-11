@@ -1,0 +1,6 @@
+@use "@/shared/assets/styles" as *;
+
+
+.download-layers {
+    @include whFull();
+}
