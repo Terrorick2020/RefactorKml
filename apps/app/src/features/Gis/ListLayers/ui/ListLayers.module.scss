@@ -8,5 +8,12 @@
     .inner-list {
         gap: 1.25vh;
         @include baseFlex(column, start, start);
+
+        .item-bts {
+            width: 100%;
+            margin-left: auto;
+            gap: 0.25vw;
+            @include baseFlex(row, end);
+        }
     }
 }

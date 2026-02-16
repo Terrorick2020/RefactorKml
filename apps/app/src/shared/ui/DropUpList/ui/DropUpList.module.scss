@@ -1,0 +1,26 @@
+@use "@/shared/assets/styles" as *;
+
+.drop-up-list {
+    gap: 1vw;
+    flex-wrap: wrap;
+    @include baseFlex(row, start);
+
+    label {
+        color: var(--app-light-color);
+        @include fluidText(19, 17);
+    }
+
+    select {
+        color: var(--app-light-color);
+        outline: none;
+        border: none;
+        border-radius: pxToRem(5);
+        padding: pxToRem(5);
+        background: color-mix(
+            in srgb,
+            var(--app-bg) 100%,
+            #ffffff 10%
+        );
+        @include fluidText(17, 15);
+    }
+}

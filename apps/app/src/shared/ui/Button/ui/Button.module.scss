@@ -44,7 +44,7 @@
         border: 0;
 
         &:hover {
-            background-color: color-mix(in srgb, var(--app-light-color) 5%, transparent 95%);
+            background-color: color-mix(in srgb, var(--bg-button-color) 50%, transparent 50%);
             backdrop-filter: blur(10);
             box-shadow: 0 0 pxToRem(2.5) color-mix(in srgb, var(--app-light-color) 10%, transparent 90%);
         }

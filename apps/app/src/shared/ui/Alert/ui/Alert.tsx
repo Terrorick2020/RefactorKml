@@ -17,7 +17,10 @@ function Alert({ children, title, open, setOpen }: IAlertProps): JSX.Element {
                 }}
                 onClick={() => setOpen(false)}
             >
-                <div className={ styles['alert__ctx'] }>
+                <div
+                    className={ styles['alert__ctx'] }
+                    onClick={(e) => e.stopPropagation()}
+                >
                     <header className={ styles['alert-header'] }>
                         <h4>{ title }</h4>
                         <hr />

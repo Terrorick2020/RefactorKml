@@ -9,5 +9,6 @@ export interface IUsePopover {
 
 export interface IUseColor {
   innerColor: string
-  setAllColor: (newColor: string) => void
+  setInnerColor: (newColor: string) => void
+  setGlobColor: () => void
 }

@@ -23,4 +23,10 @@ export namespace AppAnime {
     "#BDC3C7",
     "#34495E"
   ] as const;
+
+  export const gisItemPermistValue = {
+    max: 400,
+    step: 10,
+    min: 10,
+  } as const;
 }

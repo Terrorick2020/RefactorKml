@@ -8,10 +8,9 @@ export function useColor(
 ): IUseColor {
   const [innerColor, setInnerColor] = useState<string>(color);
 
-  const setAllColor = (newColor: string): void => {
-    setInnerColor(newColor);
-    setColor(newColor);
+  const setGlobColor = (): void => {
+    setColor(innerColor);
   }
 
-  return { innerColor, setAllColor }
+  return { innerColor, setInnerColor, setGlobColor }
 }

@@ -11,6 +11,14 @@
     @include maxWHFull();
     @include whFull();
 
+    &.scroll-type{
+        cursor: grab;
+    }
+
+    &.scroll-type:active {
+        cursor: grabbing;
+    }
+
     .permission-box-wrapper {
         overflow: hidden;
         border: 2px solid color-mix(in srgb, var(--app-bg) 10%, var(--color-mixin-color) 2.5%);
@@ -39,6 +47,12 @@
                     left: 0;
                     background: transparent;
                     @include whFull();
+
+                    .ibl-body {
+                        position: relative;
+                        background: transparent;
+                        @include whFull();
+                    }
                 }
             }
         }

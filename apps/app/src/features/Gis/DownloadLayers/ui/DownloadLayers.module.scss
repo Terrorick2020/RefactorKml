@@ -2,5 +2,7 @@
 
 
 .download-layers {
+    gap: 2vh;
     @include whFull();
+    @include baseFlex(column);
 }

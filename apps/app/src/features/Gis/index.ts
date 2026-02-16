@@ -9,3 +9,5 @@ export * from './PenPanel';
 export * from './PermissionPanel';
 export * from './ListLayers';
 export * from './PermissionBox';
+export * from './SendLayers';
+export * from './ThrowOffUpdates';

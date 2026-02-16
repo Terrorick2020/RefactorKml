@@ -8,7 +8,7 @@ import styles from './ColorPicker.module.scss';
 
 function ColorPicker({ children, title='', color='red', setColor }: IColorPickerProps): JSX.Element {
     const { open, setCritOpen, popoverRef, buttonRef } = usePopover();
-    const { innerColor, setAllColor } = useColor(color, setColor || (() => {}));
+    const { innerColor, setInnerColor, setGlobColor } = useColor(color, setColor || (() => {}));
 
     return (
         <div className={ styles['color-picker'] }>
@@ -23,11 +23,12 @@ function ColorPicker({ children, title='', color='red', setColor }: IColorPicker
                     ref={ popoverRef }
                     className={ styles['colored-popover'] }
                     style={{ display: open ? 'block' : 'none' }}
+                    onMouseUp={ setGlobColor }
                 >
                     <HexColorPicker
                         className={ styles['colored-popover__colorful'] }
                         color={ innerColor }
-                        onChange={ setAllColor }
+                        onChange={ setInnerColor }
                     />
                 </div> }
             </div>

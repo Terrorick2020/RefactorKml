@@ -31,8 +31,5 @@
       "@/*": ["src/*"]
     }
   },
-  "include": [
-    "src",
-    "src/types/*"
-  ]
+  "include": ["src"]
 }

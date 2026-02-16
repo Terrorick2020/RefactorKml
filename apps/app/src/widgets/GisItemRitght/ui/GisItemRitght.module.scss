@@ -14,16 +14,22 @@
 
     &__body {
         padding-block: pxToRem(10);
-        gap: 1vh;
+        gap: 5vh;
         @include whFull();
         @include baseFlex(column, start);
 
-        > button{
+        .bgirb-item {
             width: 100%;
-            height: pxToRem(50);
+            gap: 1vh;
+            @include baseFlex(column);
 
             &:last-of-type {
                 margin-top: auto;
+            }
+
+            button{
+                width: 100%;
+                height: pxToRem(50);
             }
         }
     }

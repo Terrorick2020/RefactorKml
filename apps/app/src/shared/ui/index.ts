@@ -5,5 +5,8 @@ export * from './Button';
 export * from './Search';
 export * from './CheckBox';
 export * from './DropDownList';
+export * from './DropUpList';
 export * from './ColorPicker';
 export * from './Alert';
+export * from './Polygon';
+export * from './PlusMinus';

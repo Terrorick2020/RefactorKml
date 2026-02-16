@@ -1,0 +1,29 @@
+@use "@/shared/assets/styles" as *;
+
+.pluse-minus {
+    --plus-minus-rotate: 0;
+
+    position: relative;
+    min-width: pxToRem(16);
+    aspect-ratio: 1 / 1;
+    @include baseFlex();
+
+    &.is-pluse {
+        --plus-minus-rotate: 90deg;
+    }
+
+    &::before, &::after {
+        content: "";
+        position: absolute;
+        background: var(--app-light-color);
+        width: 100%;
+        height: 7.5%;
+        max-height: pxToRem(5);
+        transition: transform 0.75s linear;
+    }
+
+    &::after {
+        transform: rotate(var(--plus-minus-rotate));
+        transform-origin: center;
+    }
+}
