@@ -1,9 +1,10 @@
 import {
   selectGis,
   selectGisItemList,
-  setItemLayoutLList,
-  setActiveLLItem,
+  setLayersListItem,
+  setLayersListItemActive,
   type TRootDispatch,
+  type IGSItemLayoutLLItem,
 } from '@/shared/store';
 
 import { useId, useMemo } from 'react';
@@ -24,28 +25,28 @@ export const useList: TUseList = () => {
   const keyId = useId();
   const { query, layersList } = useSelector(selListLayers);
 
-  const resList = useMemo(() => {
+  const resList = useMemo((): IGSItemLayoutLLItem[]  => {
     if(!query) return layersList;
 
-    return layersList.filter(item => item.label.includes(query));
-  }, [query]);
+    return layersList.filter(item => item.name.includes(query));
+  }, [query, layersList]);
   
   return { keyId, resList }
 }
 
-export const useListItem: TUseListItem = (id, isActive) => {
+export const useListItem: TUseListItem = (id, isShow, isActive) => {
   const dispatch = useDispatch<TRootDispatch>();
 
   const setColorItem = (color: string): void => {
-    dispatch(setItemLayoutLList({ id, color }))
+    dispatch(setLayersListItem({ id, color }))
   }
 
   const setShow = (): void => {
-    dispatch(setItemLayoutLList({ id, isShow: true }))
+    dispatch(setLayersListItem({ id, isShow: !isShow }))
   }
 
   const setActive = (): void => {
-    dispatch(setActiveLLItem({id, isActive: !isActive}))
+    dispatch(setLayersListItemActive({id, isActive: !isActive}))
   }
 
   return { setColorItem, setShow, setActive }

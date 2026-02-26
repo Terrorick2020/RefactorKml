@@ -6,6 +6,6 @@ export type TUseClearLayers = IBaseHook<TUseClearLayersArgs, IUseClearLayersRetu
 export type TUseClearLayersArgs = [ TRootUseDispatch ];
 
 export interface IUseClearLayersReturn {
-  disable: boolean
+  isDisable: boolean
   clearLayers: TBaseSetStateFn<void>
 }

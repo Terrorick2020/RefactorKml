@@ -1,4 +1,3 @@
-import { useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectGis, setCahe, type TRootDispatch } from '@/shared/store';
 import type { TUseSave } from './types';
@@ -6,18 +5,14 @@ import type { TUseSave } from './types';
 
 export const useSave: TUseSave = () => {
   const dispatch = useDispatch<TRootDispatch>()
-  const { isAutoSave, cache, layersList, img } = useSelector(selectGis).itemLayout;
+  const { isAutoSave, cache, layersList } = useSelector(selectGis).itemLayout;
 
   const saveUpdates = (): void => {
-    const newCahe = `{"layersList": ${JSON.stringify(layersList)}, "img": ${JSON.stringify(img)}}`;
+    const newCahe = JSON.stringify(layersList);
     dispatch(setCahe(newCahe));
   }
 
-  const isDisabled = useMemo(() => {
-    const result = isAutoSave ||
-      cache === `{"layersList": ${JSON.stringify(layersList)}, "img": ${JSON.stringify(img)}}`;
-    return result
-  }, [layersList, img]);
+  const isDisabled = isAutoSave || !layersList.length || cache === JSON.stringify(layersList);
 
   return { isDisabled, saveUpdates }
 }

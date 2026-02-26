@@ -10,8 +10,6 @@ import styles from './ImgLoader.module.scss';
 function ImgLoader({ src='', alt='null', size='100%' }: IImgLoaderProps): JSX.Element {
     const status = useLoadImg(src);
 
-    console.log( src )
-
     const ResultJsx = useMemo<JSX.Element>(() => {
         let result = <></>;
 

@@ -14,7 +14,7 @@ function AutoSaveCheck(): JSX.Element {
                 text="Автосохранение"
                 checked={ isAutoSave }
                 setChecked={ setIsAutoSave }
-            />;
+            />
         </div>
     )
 }

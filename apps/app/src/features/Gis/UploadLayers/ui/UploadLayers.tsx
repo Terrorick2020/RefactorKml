@@ -1,13 +1,18 @@
 import { Button, EButtonFileType } from '@/shared/ui';
-import { onFileChange } from '../model';
+import { useFileChanges } from '../model';
 import type { JSX } from 'react';
 
+
 function UploadLayers(): JSX.Element {
+    const { load, isDisable, filesChange } = useFileChanges();
+
     return <Button
         bgColor='#2c2e3a'
         text='Загрузить макет'
         fileType={ EButtonFileType.Folder }
-        onFileChange={ onFileChange }
+        disabled={ isDisable }
+        load={ load }
+        onFileChange={ filesChange }
     />
 }
 

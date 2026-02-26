@@ -3,9 +3,9 @@
 
 .color-picker {
     width: 100%;
-    gap: pxToRem(10);
-    @include baseFlex(row, start);
-
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr;
+    gap: pxToRem(5);
 
     &__input {
         .colored-box {
@@ -30,6 +30,12 @@
                 @include whFull();
             }
         }
+    }
+
+    &__title {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     &__jsx {

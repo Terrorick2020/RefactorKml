@@ -16,7 +16,7 @@ import styles from './ListLayers.module.scss';
 
 
 function ListLayersItem({ id, title, color, isShow, isActive }: IListLayersItemProps): JSX.Element {
-    const { setColorItem, setShow, setActive } = useListItem(id, isActive);
+    const { setColorItem, setShow, setActive } = useListItem(id, isShow, isActive);
 
     return (
         <ColorPicker
@@ -27,7 +27,9 @@ function ListLayersItem({ id, title, color, isShow, isActive }: IListLayersItemP
             <div className={ styles['item-bts'] }>
                 <Button
                     viewType={ EButtonViewType.Icon }
-                    icon={ <PluseMinus isPluse={ isActive } /> }
+                    icon={
+                        <PluseMinus isPluse={ isActive } />
+                    }
                     onClick={ ()=>setActive() }
                 />
                 <Button
@@ -49,18 +51,21 @@ function ListLayers(): JSX.Element {
     return (
         <div className={ styles['list-layesr'] }>
             <DropDownList title='Области' addClass={ styles['inner-list'] }>
-                <>
-                    { resList.map((item, index) => (
+                { !!resList.length
+                    ? <>
+                      { resList.map((item, index) => (
                         <ListLayersItem
                             key={`${keyId}-${index}`}
                             id={ item.id }
-                            title={ item.label }
+                            title={ item.name }
                             color={ item.color }
                             isShow={ item.isShow }
                             isActive={ item.isActive }
                         />
-                    )) }
-                </>
+                      )) }
+                      </>
+                    : <p className={ styles['empty-msg'] }>Пусто</p>
+                }
             </DropDownList>
         </div>
     )

@@ -1,4 +1,13 @@
-import { UploadLayers, DownloadLayers, SendLayers, ClearLayers, SaveUpdates, ThrowOffUpdates } from '@/features/Gis';
+import {
+    UploadLayers,
+    DownloadLayers,
+    SendLayers,
+    ClearLayers,
+    SaveUpdates,
+    ThrowOffUpdates
+} from '@/features/Gis';
+
+import { FolderCtxProvider } from '@/entities';
 import type { JSX } from 'react';
 
 import styles from './GisItemRitght.module.scss';
@@ -11,20 +20,22 @@ function GisItemRitght(): JSX.Element {
                 <h5>Возможности</h5>
                 <hr />
             </div>
-            <div className={ styles['gis-item-right__body'] }>
-                <div className={ styles['bgirb-item'] }>
-                    <UploadLayers />
-                    <ClearLayers />
+            <FolderCtxProvider>
+                <div className={ styles['gis-item-right__body'] }>
+                    <div className={ styles['bgirb-item'] }>
+                        <UploadLayers />
+                        <ClearLayers />
+                    </div>
+                    <div className={ styles['bgirb-item'] }>
+                        <ThrowOffUpdates />
+                        <SaveUpdates />
+                    </div>
+                    <div className={ styles['bgirb-item'] }>
+                        <SendLayers />
+                        <DownloadLayers />
+                    </div>
                 </div>
-                <div className={ styles['bgirb-item'] }>
-                    <ThrowOffUpdates />
-                    <SaveUpdates />
-                </div>
-                <div className={ styles['bgirb-item'] }>
-                    <SendLayers />
-                    <DownloadLayers />
-                </div>
-            </div>
+            </FolderCtxProvider>
         </article>
     )
 }

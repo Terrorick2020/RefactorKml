@@ -1,16 +1,19 @@
 import { Button, Alert, DropUpList } from '@/shared/ui';
-import { type JSX, useState } from 'react';
+import { useSelect, useSend } from '../model';
+import type { JSX } from 'react';
 
 import styles from './SendLayers.module.scss';
 
 function SendLayers(): JSX.Element {
-    const [open, setOpen] = useState<boolean>(false);
+    const { open, value, valuesList, setValue, setOpen } = useSelect();
+    const { load, isDisabled, onSend } = useSend(value);
 
     return (
         <>
             <Button
                 bgColor="#66718bff"
                 text='Выгрузить макет'
+                disabled={ isDisabled }
                 onClick={ () => setOpen(true) }
             />
             <Alert
@@ -19,11 +22,16 @@ function SendLayers(): JSX.Element {
                 setOpen={ setOpen }
             >
                 <div className={ styles['send-layers'] }>
-                    <DropUpList title='Выбирите вариант:' />
+                    <DropUpList<number>
+                        title='Выбирите вариант:'
+                        setValue={ setValue }
+                        valuesList={ valuesList }
+                    />
                     <Button
                         bgColor="#66718bff"
                         text='Подтвердить'
-                        onClick={ () => setOpen(false) }
+                        load={ load }
+                        onClick={ onSend }
                     />
                 </div>
             </Alert>

@@ -6,7 +6,9 @@ export interface IBaseCompTmplProps {
 
 export interface IBaseDirTmpl {
   name: string,
-  targetFileType: string[]
+  targFileTypes: string[]
+  targFileNames?: string[]
+  targSettFileName?: string
 }
 
 export type TBaseSetStateFn<T> = (newValue: T) => void;

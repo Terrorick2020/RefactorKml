@@ -24,22 +24,22 @@
     --button-bs: #{pxToRem(1)};
 
     #light {
-        --app-bg: #252B38;
-        --app-light-color: #C8CDD6;
-        --app-dark-color: #C8CDD6;
+        --app-bg: #f5f6fa;
+        --app-light-color: #3b3f45;
+        --app-dark-color: #e0e0e0;
 
-        --app-sel-bg: #1fb479;
-        --app-sel-color: #ddd2d2;
+        --app-sel-bg: #78c0e0;
+        --app-sel-color: #ffffff;
 
-        --app-scroll-track-bg: red;
-        --app-scroll-thumb-bg: red;
+        --app-scroll-track-bg: #dcdfe6;
+        --app-scroll-thumb-bg: #a6a9b6;
 
-        --block-bg: red;
-        --block-border-color: red;
-        --block-bs-color: #ffffff;
-        --block-bi-color: #eceff3;
+        --block-bg: #ffffff;
+        --block-border-color: #d1d5db;
+        --block-bs-color: #b0b3ba;
+        --block-bi-color: #3b3f45;
         --block-bm: darken;
-        --color-mixin-color: #272727;
+        --color-mixin-color: #4a4f57;
     }
 
     #dark {
@@ -50,8 +50,8 @@
         --app-sel-bg: #328b9b;
         --app-sel-color: #ddd2d2;
 
-        --app-scroll-track-bg: red;
-        --app-scroll-thumb-bg: red;
+        --app-scroll-track-bg: #2c3750;
+        --app-scroll-thumb-bg: #191f2d;
 
         --block-bg: #1f2430;
         --block-border-color: #282c35;

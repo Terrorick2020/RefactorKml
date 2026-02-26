@@ -1,5 +1,5 @@
 import type { IBaseHook, TBaseSetStateFn } from "@/shared/types";
-import type { IGisStateILLayersListItem } from "@/shared/store";
+import type { IGSItemLayoutLLItem } from "@/shared/store";
 
 
 export type TUseList = IBaseHook<TUseListArgs, IUseListReturn>;
@@ -7,12 +7,12 @@ export type TUseListArgs = [];
 
 export interface IUseListReturn {
   keyId: string;
-  resList: IGisStateILLayersListItem[];
+  resList: IGSItemLayoutLLItem[];
 }
 
 
 export type TUseListItem = IBaseHook<TUseListItemArgs, IUseListItemReturn>;
-export type TUseListItemArgs = [ id: string, isActive: boolean ];
+export type TUseListItemArgs = [ id: string, isShow: boolean, isActive: boolean ];
 
 export interface IUseListItemReturn {
   setColorItem: TBaseSetStateFn<string>;

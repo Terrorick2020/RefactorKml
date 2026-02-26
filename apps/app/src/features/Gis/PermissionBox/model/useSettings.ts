@@ -1,15 +1,15 @@
 import { useRef, useLayoutEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { createSelector } from 'reselect';
-import { selectGisItemTools, selectGis, setItemLayoutTools, EGisCursorType } from '@/shared/store';
+import { selectGisItemTools, selectGisItemLImg, setItemLayoutTools, EGisCursorType } from '@/shared/store';
 import { type ReactZoomPanPinchRef } from 'react-zoom-pan-pinch';
 import type { TUseSettings } from './types';
 
 
 const selPermisBox = createSelector(
-  [selectGis, selectGisItemTools],
+  [selectGisItemLImg, selectGisItemTools],
   (gis, gisTools) => ({
-    img: gis.itemLayout.img,
+    tifImg: gis,
     cursorType: gisTools.cursorType,
     penType: gisTools.penType,
     zoom: gisTools.zoom,
@@ -17,7 +17,7 @@ const selPermisBox = createSelector(
 );
 
 export const useSettings: TUseSettings = (dispatch) => {
-  const { img, cursorType, penType, zoom } = useSelector(selPermisBox);
+  const { tifImg, cursorType, penType, zoom } = useSelector(selPermisBox);
   const trnsRef = useRef<ReactZoomPanPinchRef | null>(null);
   const zoomCache = useRef<number>(zoom);
 
@@ -42,6 +42,7 @@ export const useSettings: TUseSettings = (dispatch) => {
   }, [zoom]);
 
   return {
+    tifImg,
     trnsRef,
     isTransform,
     penType,

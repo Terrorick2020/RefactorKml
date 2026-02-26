@@ -12,6 +12,7 @@
     text-decoration: none;
     border-radius: var(--button-br);
     padding: pxToRem(2.5);
+    padding-inline: pxToRem(5);;
     background-color: color-mix(in srgb, var(--bg-button-color) 90%, black 10%);
     color: color-mix(in srgb, var(--app-light-color) 90%, black 10%);
     border: 2px solid color-mix(in srgb, var(--bg-button-color) 90%, rgb(255, 255, 255) 10%);
@@ -24,10 +25,19 @@
     &:disabled {
         opacity: 0.8;
         cursor: not-allowed;
+        touch-action: none;
+
+        input[type="file"] {
+            display: none;
+        }
     }
 
     &:active:not(&:disabled) {
         transform: scale(0.9);
+    }
+
+    &:has(.button__text) {
+        gap: pxToRem(2.5);
     }
 
     input[type="file"] {
@@ -52,6 +62,36 @@
 
     &__text {
         text-decoration: none;
+    }
+
+    &__load {
+        @keyframes button-loader-rotate {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        position: relative;
+        height: 70%;
+        aspect-ratio: 1 / 1;
+        border-radius: 50%;
+        flex: 0 0 auto;
+        border: 3px solid color-mix(
+            in srgb,
+            var(--bg-button-color) 70%,
+            transparent 30%
+        );
+        border-top: 3px solid var(--color-mixin-color);
+        animation: button-loader-rotate 0.8s linear infinite;
+    }
+
+    &__load::after {
+        content: '';
+        position: absolute;
+        width: 80%;
+        height: 80%;
+        background-color: color-mix(in srgb, var(--bg-button-color) 90%, black 10%);
+        border-radius: 50%;
     }
 
     &__icon {

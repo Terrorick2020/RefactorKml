@@ -2,39 +2,14 @@
 
 
 .polygon {
-    --polygon-bg: transparent;
-
     position: absolute;
     top: 0;
     left: 0;
     background: transparent;
     @include whFull();
 
-    &__svg {
+    svg {
         background: transparent;
         @include whFull();
-
-        polygon {
-            fill: var(--polygon-bg);
-            stroke: color-mix(
-                in srgb,
-                var(--polygon-bg) 25%,
-                #000000 75%
-            );
-        }
-
-        circle {
-            fill: #fff;
-            stroke: #000;
-            stroke-width: 1;
-            cursor: pointer;
-        }
-
-        path {
-            fill: none;
-            stroke: var(--polygon-bg);
-            stroke-linecap: round;
-            stroke-linejoin: round;
-        }
     }
 }

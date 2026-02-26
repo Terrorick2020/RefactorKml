@@ -4,14 +4,28 @@ import type { IBaseDirTmpl } from '@/shared/types';
 export const dirSystemLayout: IBaseDirTmpl[] = [
   {
     name: '/aux_',
-    targetFileType: ['.tif']
+    targFileTypes: ['.tif'],
+    targFileNames: [
+      'cropped_dem.tif',
+      'cropped_raster.tif',
+      'cropped_raster_orig_scale.tif'
+    ],
+    targSettFileName: 'cropped_raster.tif',
   },
   {
-    name: '/Dem',
-    targetFileType: ['.tif']
+    name: '/DEM',
+    targFileTypes: ['.tif'],
   },
   {
     name: '/layers',
-    targetFileType: ['.kml']
+    targFileTypes: ['.kml'],
+    targFileNames: ['result.kml'],
+    targSettFileName: 'result.kml',
   }
 ]
+
+export const xmlParsCfg = {
+  ignoreAttributes: false,
+  attributeNamePrefix: '@_',
+  parseTagValue: true,
+};

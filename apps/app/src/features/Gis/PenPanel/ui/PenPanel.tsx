@@ -7,6 +7,7 @@ import type { JSX } from 'react';
 
 import MarkerSvgr from './marker.svg?react';
 import PenToolSvgr from './pen-tool.svg?react';
+import ScissorSvgr from './scissors.svg?react';
 import './PenPanel.module.scss';
 
 
@@ -33,6 +34,14 @@ function PenPanel(): JSX.Element {
                 }
                 onClick={ () => setPenType( EPolygonWorkType.Draw ) }
              />
+            <Button
+                viewType={ EButtonViewType.Icon }
+                bgColor={ getBtnBg(penType === EPolygonWorkType.Scissors) }
+                icon={
+                    <ScissorSvgr />
+                }
+                onClick={ () => setPenType( EPolygonWorkType.Scissors ) }
+            />
         </>
     )
 }

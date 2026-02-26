@@ -9,6 +9,7 @@ function Button({
         icon=<></>,
         viewType=EButtonViewType.Text,
         fileType=null,
+        load=false,
         bgColor='transparent',
         onFileChange=()=> {},
         ...props
@@ -28,6 +29,9 @@ function Button({
         >
             { viewType === EButtonViewType.Text
                 && <span className={ styles['button__text'] }>{ text }</span>
+            }
+            { load && viewType === EButtonViewType.Text 
+                && <div className={ styles['button__load'] } />
             }
             <span className={ styles['button__icon'] }>{ icon }</span>
             { !!fileType

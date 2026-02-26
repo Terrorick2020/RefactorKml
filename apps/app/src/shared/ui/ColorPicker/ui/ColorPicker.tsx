@@ -23,12 +23,12 @@ function ColorPicker({ children, title='', color='red', setColor }: IColorPicker
                     ref={ popoverRef }
                     className={ styles['colored-popover'] }
                     style={{ display: open ? 'block' : 'none' }}
-                    onMouseUp={ setGlobColor }
                 >
                     <HexColorPicker
                         className={ styles['colored-popover__colorful'] }
                         color={ innerColor }
                         onChange={ setInnerColor }
+                        onPointerUp={ setGlobColor }
                     />
                 </div> }
             </div>

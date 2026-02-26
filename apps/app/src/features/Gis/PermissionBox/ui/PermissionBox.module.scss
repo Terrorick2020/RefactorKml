@@ -7,16 +7,20 @@
 
 .permission-box {
     overflow: hidden;
-    width: 100%;
     @include maxWHFull();
     @include whFull();
 
-    &.scroll-type{
+    &:not(:has(.permission-box__empty)).scroll-type {
         cursor: grab;
     }
 
-    &.scroll-type:active {
+    &:not(:has(.permission-box__empty)).scroll-type:active {
         cursor: grabbing;
+    }
+
+    &__empty {
+        @include whFull();
+        @include baseFlex();
     }
 
     .permission-box-wrapper {
@@ -38,7 +42,8 @@
                     display: block;
                     width: auto;
                     height: auto;
-                    @include maxWHFull();
+                    max-width: 100%;
+                    max-height: 85vh;
                 }
 
                 &__layers {

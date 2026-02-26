@@ -1,27 +1,20 @@
+import { useContext } from 'react';
 import { useSelector } from 'react-redux';
-import { selectGis, resetItemLayout } from '@/shared/store';
-import { useRef, useEffect } from 'react';
+import { resetItemLayout, selectGisItemList } from '@/shared/store';
+import { FolderContext } from '@/entities';
 import type { TUseClearLayers } from './types';
 
 
 export const useClearLayers: TUseClearLayers = ( dispatch ) => {
-  const kashLayers = useRef<string | null>(null);
-
-  const itemLayout = useSelector(selectGis).itemLayout;
+  const context = useContext(FolderContext);
+  const layersList = useSelector(selectGisItemList);
 
   const clearLayers = (): void => {
+    context.setValue(null);
     dispatch(resetItemLayout());
   };
 
-  useEffect(() => {
-    kashLayers.current = JSON.stringify(itemLayout);
+  const isDisable = !layersList.length;
 
-    return () => {
-      kashLayers.current = null;
-    }
-  }, [])
-
-  const disable = JSON.stringify(itemLayout) === kashLayers.current;
-
-  return { disable, clearLayers }
+  return { isDisable, clearLayers }
 }

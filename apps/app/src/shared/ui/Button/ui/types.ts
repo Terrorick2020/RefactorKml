@@ -3,6 +3,7 @@ import type { JSX, ButtonHTMLAttributes, ChangeEvent } from 'react'
 export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   text?: string
   icon?: JSX.Element
+  load?: boolean
   viewType?: EButtonViewType
   fileType?: EButtonFileType | null
   bgColor?: string

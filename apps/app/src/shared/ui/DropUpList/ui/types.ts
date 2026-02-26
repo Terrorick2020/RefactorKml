@@ -1,9 +1,12 @@
-export interface IDropUpListProps {
+import type { TBaseSetStateFn } from '@/shared/types';
+
+export interface IDropUpListProps<T extends string | number> {
   title: string
-  valuesList?: IDropUpValues[]
+  setValue?: TBaseSetStateFn<T>;
+  valuesList?: IDropUpValues<T>[];
 }
 
-export type IDropUpValues<T = any, EXTRA = {}> = IDropUpValuesBase<T> & EXTRA;
+export type IDropUpValues<T extends string | number, EXTRA = {}> = IDropUpValuesBase<T> & EXTRA;
 
 interface IDropUpValuesBase<T = any> {
   value: T;

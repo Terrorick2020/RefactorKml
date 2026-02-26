@@ -17,9 +17,37 @@ export interface IGisStateItemLayout {
   isAutoSave: boolean;
   query: string;
   tools: IGisStateILTools;
-  layersList: IGisStateILLayersListItem[];
-  img: IGisStateILLayersImg | null;
-  cache: string
+  cache: string;
+  tifImg: IGSItemLayoutTifImg | null;
+  layersList: IGSItemLayoutLLItem[];
+}
+
+export interface IGSItemLayoutTifImg {
+  img: string
+  selfSize: IImgSize
+}
+
+export interface IImgSize {
+  width: number
+  height: number
+}
+
+export interface IGSItemLayoutLLItem {
+  id: string;
+  name: string;
+  isShow: boolean;
+  isActive: boolean;
+  color: string;
+  polygons: IGisLLItemPolygon[];
+}
+
+export interface IGisLLItemPolygon {
+  id: string;
+  name: string;
+  lineColor: string;
+  lineWidth: number;
+  outerCoords: IPoint[];
+  innerCoords?: IPoint[][];
 }
 
 export interface IGisStateILTools {
@@ -31,24 +59,4 @@ export interface IGisStateILTools {
 export enum EGisCursorType {
   Scroll = "scroll",
   Transform = "transform",
-}
-
-export interface IGisStateILLayersListItem {
-  id: string;
-  fileName: string;
-  label: string;
-  color: string;
-  isShow: boolean;
-  isActive: boolean
-  coordinats: IPoint[];
-}
-
-export interface IGisStateILLayersImg {
-  initial: IGisILLayersImgVal;
-  target: IGisILLayersImgVal;
-}
-
-export interface IGisILLayersImgVal {
-  width: number;
-  height: number;
 }

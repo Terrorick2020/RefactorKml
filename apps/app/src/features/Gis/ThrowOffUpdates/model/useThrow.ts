@@ -4,21 +4,14 @@ import type { TRootDispatch } from '@/shared/store';
 
 
 export const useThrow = () => {
-  const { isAutoSave, cache, layersList, img } = useSelector(selectGis).itemLayout;
+  const { isAutoSave, cache, layersList } = useSelector(selectGis).itemLayout;
   const dispatch = useDispatch<TRootDispatch>();
 
-  const isDisabled = isAutoSave ||
-    cache === `{"layersList": ${JSON.stringify(layersList)}, "img": ${JSON.stringify(img)}}`;
+  const isDisabled = isAutoSave || !layersList.length || cache !== JSON.stringify(layersList);
 
   const throwUpdates = (): void => {
-    const parseData = JSON.parse(cache);
-
-    if(!parseData.layersList || !parseData.img) return;
-
     dispatch(setItemLayout({
-      layersList: parseData.layersList,
-      img: parseData.img,
-      cache: JSON.stringify(parseData),
+      layersList: JSON.parse(cache),
     }))
   }
 

@@ -5,10 +5,12 @@ import {
   type IGisState,
   type IGisStateItemLayout,
   type IGisStateILTools,
-  type IGisStateILLayersListItem,
+  type IGSItemLayoutTifImg,
+  type IGSItemLayoutLLItem,
 } from "./types";
 
 import { EPolygonWorkType } from "@/shared/ui";
+
 
 const initialState: IGisState = {
   itemLayout: {
@@ -19,36 +21,9 @@ const initialState: IGisState = {
       penType: EPolygonWorkType.Figure,
       zoom: 100,
     },
-    layersList: [
-      {
-        id: "sdvsdvsdvsdv",
-        fileName: "hello.tif",
-        label: "Слой 1",
-        color: "red",
-        isShow: true,
-        isActive: false,
-        coordinats: [
-          { x: 0, y: 100 },
-          { x: 100, y: 500 },
-          { x: 2, y: 340 },
-        ],
-      },
-      {
-        id: "sdv",
-        fileName: "hello.tif",
-        label: "Слой 2",
-        color: "blue",
-        isShow: true,
-        isActive: true,
-        coordinats: [
-          { x: 500, y: 100 },
-          { x: 500, y: 500 },
-          { x: 550, y: 340 },
-        ],
-      },
-    ],
-    img: null,
     cache: '',
+    tifImg: null,
+    layersList: [],
   },
 };
 
@@ -70,31 +45,34 @@ const settingsSlice = createSlice({
     ) => {
       state.itemLayout.tools = { ...state.itemLayout.tools, ...action.payload };
     },
-    setItemLayoutLList: (
-      state,
-      action: PayloadAction<
-        Partial<IGisStateILLayersListItem> & { id: string }
-      >,
-    ) => {
-      state.itemLayout.layersList = state.itemLayout.layersList.map((item) =>
-        item.id === action.payload.id ? { ...item, ...action.payload } : item,
-      );
-    },
-    setActiveLLItem: (
-      state,
-      action: PayloadAction<Pick<IGisStateILLayersListItem, 'id' | 'isActive'>>
-    ) => {
-      state.itemLayout.layersList = state.itemLayout.layersList.map((item) =>
-        item.id === action.payload.id
-          ? { ...item, isActive: action.payload.isActive }
-          : { ...item, isActive: false },
-      );
-    },
     setCahe: (
       state,
       action: PayloadAction<string>
     ) => {
       state.itemLayout.cache = action.payload;
+    },
+    setLayersListItem: (
+      state,
+      action: PayloadAction<Partial<IGSItemLayoutLLItem> & { id: string }>
+    ) => {
+      state.itemLayout.layersList = state.itemLayout.layersList.map(
+        item => item.id === action.payload.id
+        ? { ...item, ...action.payload}
+        : item
+      )
+    },
+    setLayersListItemActive: (
+      state,
+      action: PayloadAction<{ id: string, isActive: boolean }>
+    ) => {
+      state.itemLayout.layersList = state.itemLayout.layersList.map(
+        item => item.id === action.payload.id
+        ? { ...item, isActive: action.payload.isActive, isShow: action.payload.isActive }
+        : { ...item,  isActive: false }
+      )
+    },
+    setTifImg: (state, actoion: PayloadAction<IGSItemLayoutTifImg>) => {
+      state.itemLayout.tifImg = actoion.payload;
     },
     resetItemLayout: (state) => {
       state.itemLayout = initialState.itemLayout;
@@ -106,10 +84,11 @@ const settingsSlice = createSlice({
 export const {
   setItemLayout,
   setItemLayoutTools,
-  setItemLayoutLList,
+  setLayersListItem,
+  setLayersListItemActive,
   resetItemLayout,
-  setActiveLLItem,
   setCahe,
+  setTifImg,
 } = settingsSlice.actions;
 export { gisSliceName };
 export default settingsSlice.reducer;
