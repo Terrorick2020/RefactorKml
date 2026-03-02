@@ -1,4 +1,5 @@
 **/dist
+**/venv
 **/dist-ssr
 **/.vscode
 **/!.vscode/extensions.json
